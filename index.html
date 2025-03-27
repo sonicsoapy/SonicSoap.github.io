@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SonicSoap – Coming Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SonicSoap — VibeAlign Your World</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Quicksand:wght@500&display=swap');
+
     body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
+      align-items: center;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Manrope', 'Quicksand', sans-serif;
       text-align: center;
+      padding: 0 1rem;
     }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border: 4px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo::after {
+      content: "";
+      width: 30px;
+      height: 30px;
+      border: 3px solid white;
+      border-radius: 50%;
+    }
+
     h1 {
       font-size: 3em;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.2em;
     }
+
     p {
       font-size: 1.2em;
-      opacity: 0.8;
+      max-width: 500px;
     }
-    .logo {
-      font-size: 2em;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 0.2em;
+
+    .email {
+      margin-top: 2em;
+      font-size: 1em;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <div class="logo">SonicSoap</div>
-  <h1>VibeAlign Your World</h1>
-  <p>Our vibrational healing platform is being tuned.<br>Stay resonant—SonicSoap.com is coming soon.</p>
+  <div class="logo"></div>
+  <h1>SonicSoap</h1>
+  <h2>VibeAlign Your World</h2>
+  <p>Our vibrational healing platform is being tuned. Stay resonant—SonicSoap.com is coming soon.</p>
+  <div class="email">Contact: hello@sonicsoap.com</div>
 </body>
 </html>
