@@ -10,12 +10,16 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(ellipse at center, #01141a 0%, #000000 100%);
+      background: linear-gradient(to bottom right, #5f2c82, #7b4397);
       color: white;
       text-align: center;
     }
     header {
       padding: 2em 1em;
+    }
+    .logo-svg {
+      width: 80px;
+      margin-bottom: 1em;
     }
     h1 {
       font-size: 2.5em;
@@ -33,7 +37,7 @@
     nav a {
       margin: 0 1em;
       text-decoration: none;
-      color: #0ff;
+      color: #00d8cc;
       font-weight: 700;
     }
     .bubble-container {
@@ -55,10 +59,12 @@
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
+      border: 2px solid #00b9b9;
     }
     .bubble:hover {
       background: rgba(255, 255, 255, 0.15);
       transform: scale(1.05);
+      border-color: #00f0e0;
     }
     .modal {
       display: none;
@@ -73,12 +79,13 @@
       align-items: center;
     }
     .modal-content {
-      background: #0a0a0a;
+      background: #1a0f2e;
       padding: 2em;
       border-radius: 12px;
       width: 90%;
       max-width: 500px;
       text-align: center;
+      color: #ffffff;
     }
     .close {
       color: #aaa;
@@ -93,14 +100,19 @@
     }
     footer {
       font-size: 0.8em;
-      color: #777;
+      color: #ccc;
       margin: 4em 0 2em;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="/logo.png" alt="SonicSoap Logo" width="60" style="margin-bottom:1em;">
+    <!-- Inline SVG logo (SonicSoap waveform circle style) -->
+    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" stroke="#00b9b9" stroke-width="4" fill="none" />
+      <path d="M10 60 Q20 30, 30 50 Q40 70, 50 40 Q60 20, 70 60 Q80 80, 90 50"
+            stroke="#00b9b9" stroke-width="4" fill="none" />
+    </svg>
     <h1>SonicSoap<sup>™</sup></h1>
     <h2>VibeAlign Your World — Vibrational therapy harnesses the power of sound and frequency to promote wellness and healing.</h2>
     <nav>
