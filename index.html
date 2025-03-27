@@ -2,66 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SonicSoap — VibeAlign Your World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SonicSoap</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Quicksand:wght@500&display=swap');
-
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to bottom, #021c1e, #043933);
       color: white;
-      font-family: 'Manrope', 'Quicksand', sans-serif;
       text-align: center;
-      padding: 0 1rem;
+    }
+
+    header {
+      padding: 40px 20px 10px;
     }
 
     .logo {
-      width: 80px;
-      height: 80px;
-      border: 4px solid white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #aef3dd;
+    }
+
+    .main-title {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .main-sub {
+      font-size: 1.1rem;
+      margin: 10px 0 30px;
+      color: #ccc;
+    }
+
+    .learn-more {
+      background: none;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .learn-more:hover {
+      background: white;
+      color: #043933;
+    }
+
+    .bubbles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding: 40px 20px;
+    }
+
+    .bubble {
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 50%;
+      padding: 30px 20px;
+      text-align: center;
+      width: 140px;
+      height: 140px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #ffffffaa;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
-    .logo::after {
-      content: "";
-      width: 30px;
-      height: 30px;
-      border: 3px solid white;
-      border-radius: 50%;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 500px;
-    }
-
-    .email {
-      margin-top: 2em;
-      font-size: 1em;
-      opacity: 0.8;
+    .bubble:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="logo"></div>
-  <h1>SonicSoap</h1>
-  <h2>VibeAlign Your World</h2>
-  <p>Our vibrational healing platform is being tuned. Stay resonant—SonicSoap.com is coming soon.</p>
-  <div class="email">Contact: hello@sonicsoap.com</div>
+  <header>
+    <div class="logo">SonicSoap™</div>
+    <div class="tagline">VibeAlign Your World</div>
+    <div class="main-title">Tune In. Cleanse. Align.</div>
+    <div class="main-sub">Vibrational therapy harnesses the power of sound and frequency to promote wellness and healing.</div>
+    <button class="learn-more">Learn More</button>
+  </header>
+
+  <section class="bubbles-container">
+    <div class="bubble" onclick="playSound('sounds/energy-healing.wav')">Energy Healing</div>
+    <div class="bubble" onclick="playSound('sounds/trauma-clearing.wav')">Trauma Clearing</div>
+    <div class="bubble" onclick="playSound('sounds/emotional-release.wav')">Emotional Release</div>
+    <div class="bubble" onclick="playSound('sounds/mindfulness.wav')">Mindfulness</div>
+    <div class="bubble" onclick="playSound('sounds/inner-peace.wav')">Inner Peace</div>
+    <div class="bubble" onclick="playSound('sounds/mental-clarity.wav')">Mental Clarity</div>
+    <div class="bubble" onclick="playSound('sounds/stress-reduction.wav')">Stress Reduction</div>
+  </section>
+
+  <script>
+    let currentAudio = null;
+
+    function playSound(path) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      currentAudio = new Audio(path);
+      currentAudio.play();
+    }
+  </script>
 </body>
 </html>
