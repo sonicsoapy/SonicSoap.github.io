@@ -2,120 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SonicSoap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SonicSoap | Tune In. Cleanse. Align.</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: linear-gradient(to bottom, #021c1e, #043933);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at center, #0b1f25, #040f12);
       color: white;
-      text-align: center;
+      overflow-x: hidden;
     }
 
     header {
-      padding: 40px 20px 10px;
+      text-align: center;
+      padding: 4rem 2rem 2rem;
     }
 
-    .logo {
-      font-size: 2.2rem;
-      font-weight: bold;
-      margin-bottom: 8px;
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
     }
 
-    .tagline {
+    header h2 {
+      font-weight: normal;
       font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #aef3dd;
-    }
-
-    .main-title {
-      font-size: 2.4rem;
-      font-weight: bold;
-      margin: 20px 0;
-    }
-
-    .main-sub {
-      font-size: 1.1rem;
-      margin: 10px 0 30px;
-      color: #ccc;
-    }
-
-    .learn-more {
-      background: none;
-      border: 1px solid white;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .learn-more:hover {
-      background: white;
-      color: #043933;
+      color: #b5e5e0;
     }
 
     .bubbles-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      padding: 40px 20px;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .bubble {
       background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50%;
-      padding: 30px 20px;
-      text-align: center;
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1rem;
-      color: #ffffffaa;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #e0f7f6;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: floaty 6s ease-in-out infinite;
     }
 
     .bubble:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #62fcd6;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    audio {
+      display: none;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 2rem;
+      color: #7ddcd3;
+    }
+
+    .ambient-control {
+      text-align: center;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">SonicSoap™</div>
-    <div class="tagline">VibeAlign Your World</div>
-    <div class="main-title">Tune In. Cleanse. Align.</div>
-    <div class="main-sub">Vibrational therapy harnesses the power of sound and frequency to promote wellness and healing.</div>
-    <button class="learn-more">Learn More</button>
+    <h1>SonicSoap<sup>™</sup></h1>
+    <h2>VibeAlign Your World</h2>
+    <p>Tap a bubble to tune into vibrational clarity.</p>
   </header>
 
-  <section class="bubbles-container">
-    <div class="bubble" onclick="playSound('sounds/energy-healing.wav')">Energy Healing</div>
-    <div class="bubble" onclick="playSound('sounds/trauma-clearing.wav')">Trauma Clearing</div>
-    <div class="bubble" onclick="playSound('sounds/emotional-release.wav')">Emotional Release</div>
-    <div class="bubble" onclick="playSound('sounds/mindfulness.wav')">Mindfulness</div>
-    <div class="bubble" onclick="playSound('sounds/inner-peace.wav')">Inner Peace</div>
-    <div class="bubble" onclick="playSound('sounds/mental-clarity.wav')">Mental Clarity</div>
-    <div class="bubble" onclick="playSound('sounds/stress-reduction.wav')">Stress Reduction</div>
-  </section>
+  <div class="bubbles-container">
+    <div class="bubble" onclick="playSound('energy-healing')">Energy Healing</div>
+    <div class="bubble" onclick="playSound('trauma-clearing')">Trauma Clearing</div>
+    <div class="bubble" onclick="playSound('emotional-release')">Emotional Release</div>
+    <div class="bubble" onclick="playSound('mindfulness')">Mindfulness</div>
+    <div class="bubble" onclick="playSound('inner-peace')">Inner Peace</div>
+    <div class="bubble" onclick="playSound('mental-clarity')">Mental Clarity</div>
+    <div class="bubble" onclick="playSound('stress-reduction')">Stress Reduction</div>
+  </div>
+
+  <div class="ambient-control">
+    <button onclick="toggleAmbient()">Toggle Ambient Background</button>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 SonicSoap™ | VibeAlign is a patented system. | hello@sonicsoap.com
+  </div>
+
+  <audio id="energy-healing" src="sounds/energy-healing.wav"></audio>
+  <audio id="trauma-clearing" src="sounds/trauma-clearing.wav"></audio>
+  <audio id="emotional-release" src="sounds/emotional-release.wav"></audio>
+  <audio id="mindfulness" src="sounds/mindfulness.wav"></audio>
+  <audio id="inner-peace" src="sounds/inner-peace.wav"></audio>
+  <audio id="mental-clarity" src="sounds/mental-clarity.wav"></audio>
+  <audio id="stress-reduction" src="sounds/stress-reduction.wav"></audio>
+
+  <audio id="ambient" src="sounds/ambient-loop.mp3" loop></audio>
 
   <script>
-    let currentAudio = null;
-
-    function playSound(path) {
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
+    function playSound(id) {
+      const audio = document.getElementById(id);
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
       }
-      currentAudio = new Audio(path);
-      currentAudio.play();
+    }
+
+    function toggleAmbient() {
+      const ambient = document.getElementById('ambient');
+      if (ambient.paused) {
+        ambient.play();
+      } else {
+        ambient.pause();
+      }
     }
   </script>
 </body>
