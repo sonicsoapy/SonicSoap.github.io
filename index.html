@@ -3,137 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SonicSoap | Tune In. Cleanse. Align.</title>
+  <meta name="description" content="SonicSoap | Tune In. Cleanse. Align. Experience vibrational healing through sound." />
+  <title>SonicSoap | VibeAlign Your World</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at center, #0b1f25, #040f12);
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(ellipse at center, #01141a 0%, #000000 100%);
       color: white;
-      overflow-x: hidden;
-    }
-
-    header {
       text-align: center;
-      padding: 4rem 2rem 2rem;
     }
-
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+    header {
+      padding: 2em 1em;
     }
-
-    header h2 {
-      font-weight: normal;
-      font-size: 1.2rem;
-      color: #b5e5e0;
+    h1 {
+      font-size: 2.5em;
+      margin: 0.2em 0;
     }
-
-    .bubbles-container {
+    h2 {
+      font-weight: 400;
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    nav {
+      margin-top: 1.5em;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #0ff;
+      font-weight: 700;
+    }
+    .bubble-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+      padding: 3em 1em;
+      gap: 1.2em;
     }
-
     .bubble {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #e0f7f6;
+      font-size: 0.95em;
+      color: white;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: floaty 6s ease-in-out infinite;
+      transition: all 0.3s ease;
     }
-
     .bubble:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #62fcd6;
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
     }
-
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    audio {
+    .modal {
       display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
     }
-
-    .footer {
+    .modal-content {
+      background: #0a0a0a;
+      padding: 2em;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
       text-align: center;
-      font-size: 0.8rem;
-      padding: 2rem;
-      color: #7ddcd3;
     }
-
-    .ambient-control {
-      text-align: center;
-      margin-top: 1rem;
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    audio {
+      width: 100%;
+      margin-top: 1em;
+    }
+    footer {
+      font-size: 0.8em;
+      color: #777;
+      margin: 4em 0 2em;
     }
   </style>
 </head>
 <body>
   <header>
+    <img src="/logo.png" alt="SonicSoap Logo" width="60" style="margin-bottom:1em;">
     <h1>SonicSoap<sup>™</sup></h1>
-    <h2>VibeAlign Your World</h2>
-    <p>Tap a bubble to tune into vibrational clarity.</p>
+    <h2>VibeAlign Your World — Vibrational therapy harnesses the power of sound and frequency to promote wellness and healing.</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Sessions</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 
-  <div class="bubbles-container">
-    <div class="bubble" onclick="playSound('energy-healing')">Energy Healing</div>
-    <div class="bubble" onclick="playSound('trauma-clearing')">Trauma Clearing</div>
-    <div class="bubble" onclick="playSound('emotional-release')">Emotional Release</div>
-    <div class="bubble" onclick="playSound('mindfulness')">Mindfulness</div>
-    <div class="bubble" onclick="playSound('inner-peace')">Inner Peace</div>
-    <div class="bubble" onclick="playSound('mental-clarity')">Mental Clarity</div>
-    <div class="bubble" onclick="playSound('stress-reduction')">Stress Reduction</div>
+  <section class="bubble-container">
+    <div class="bubble" onclick="openModal('Energy Healing', 'energy-healing.wav')">Energy Healing</div>
+    <div class="bubble" onclick="openModal('Trauma Clearing', 'trauma-clearing.wav')">Trauma Clearing</div>
+    <div class="bubble" onclick="openModal('Emotional Release', 'emotional-release.wav')">Emotional Release</div>
+    <div class="bubble" onclick="openModal('Mindfulness', 'mindfulness.wav')">Mindfulness</div>
+    <div class="bubble" onclick="openModal('Inner Peace', 'inner-peace.wav')">Inner Peace</div>
+    <div class="bubble" onclick="openModal('Mental Clarity', 'mental-clarity.wav')">Mental Clarity</div>
+    <div class="bubble" onclick="openModal('Stress Reduction', 'stress-reduction.wav')">Stress Reduction</div>
+    <div class="bubble" onclick="openModal('Chakra Alignment', 'chakra-alignment.wav')">Chakra Alignment</div>
+    <div class="bubble" onclick="openModal('Lucid Focus', 'lucid-focus.wav')">Lucid Focus</div>
+  </section>
+
+  <div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation();">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p>Preview the healing tone below:</p>
+      <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/wav" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </div>
 
-  <div class="ambient-control">
-    <button onclick="toggleAmbient()">Toggle Ambient Background</button>
-  </div>
-
-  <div class="footer">
-    &copy; 2025 SonicSoap™ | VibeAlign is a patented system. | hello@sonicsoap.com
-  </div>
-
-  <audio id="energy-healing" src="sounds/energy-healing.wav"></audio>
-  <audio id="trauma-clearing" src="sounds/trauma-clearing.wav"></audio>
-  <audio id="emotional-release" src="sounds/emotional-release.wav"></audio>
-  <audio id="mindfulness" src="sounds/mindfulness.wav"></audio>
-  <audio id="inner-peace" src="sounds/inner-peace.wav"></audio>
-  <audio id="mental-clarity" src="sounds/mental-clarity.wav"></audio>
-  <audio id="stress-reduction" src="sounds/stress-reduction.wav"></audio>
-
-  <audio id="ambient" src="sounds/ambient-loop.mp3" loop></audio>
+  <footer>
+    &copy; 2025 SonicSoap. All rights reserved. VibeAlign is a copyrighted and patent-pending system.
+  </footer>
 
   <script>
-    function playSound(id) {
-      const audio = document.getElementById(id);
-      if (audio) {
-        audio.currentTime = 0;
-        audio.play();
-      }
+    function openModal(title, file) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('audioSource').src = 'sounds/' + file;
+      document.getElementById('audioPlayer').load();
+      document.getElementById('modal').style.display = 'flex';
     }
-
-    function toggleAmbient() {
-      const ambient = document.getElementById('ambient');
-      if (ambient.paused) {
-        ambient.play();
-      } else {
-        ambient.pause();
-      }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+      document.getElementById('audioPlayer').pause();
     }
   </script>
 </body>
